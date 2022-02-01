@@ -14,9 +14,22 @@ public class Nascimento {
 		int nasc = entrada.nextInt();
 		
 		System.out.println("Você ja fez aniversário esse ano? (S ou N)");
-		String resp = entrada.next();
-		if(resp = "S"  resp =)
-		
+		boolean respValid = false;
+		while (!respValid) {
+			String resp = entrada.next().toUpperCase();
+			
+			switch (resp) {
+			case "S":
+				respValid = true;
+				break;
+			case "N":
+				nasc++;
+				respValid = true;
+				break;
+			default:
+				System.out.println("Resposta Inválida, digite sua resposta novamente (S ou N)");
+			}
+		}
 		int idade = ano - nasc;
 		
 		if(idade >= 18) {
