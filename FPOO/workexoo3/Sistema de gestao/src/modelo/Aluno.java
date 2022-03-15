@@ -47,4 +47,7 @@ public class Aluno {
 			return "Aluno(a) " + nome + "Foi reprovado!";
 		}
 	}
+	public String paraString() {
+		return nome + "\t" + ra + "\t" + df.format(nascimentoAluno)+ "\t" + "        " + idadeDoItem();
+	}
 }

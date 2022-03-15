@@ -1,5 +1,6 @@
 package modelo;
 
+import visao.Main;
 public class Notas {
 
 	public String componente;
