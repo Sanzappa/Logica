@@ -42,9 +42,12 @@ public class Aluno {
 			}
 		}
 		if (aprovado) {
-			return "Aluno(a) " + nome + "Foi aprovado!";
+			return "Aluno(a) " + nome + " Foi aprovado!";
 		} else {
-			return "Aluno(a) " + nome + "Foi reprovado!";
+			return "Aluno(a) " + nome + " Foi reprovado!";
 		}
+	}
+	public String paraString() {
+		return nome + "\t" + ra + "\t" + df.format(nascimentoAluno)+ "\t" + "        " + idadeDoItem();
 	}
 }
