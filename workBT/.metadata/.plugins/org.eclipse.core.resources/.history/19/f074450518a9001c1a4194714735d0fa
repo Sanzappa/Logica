@@ -76,6 +76,7 @@ public class Menu {
 						break;
 					}
 				}
+				
 				break;
 			case 3:
 				listarPets();

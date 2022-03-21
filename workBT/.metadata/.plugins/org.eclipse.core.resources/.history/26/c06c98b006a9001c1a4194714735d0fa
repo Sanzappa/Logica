@@ -76,6 +76,7 @@ public class Menu {
 						break;
 					}
 				}
+				
 				break;
 			case 3:
 				listarPets();
@@ -134,7 +135,7 @@ public class Menu {
 			Pet animal = buscarAnimal(read.nextInt());
 			if (animal != null) {
 				System.out.println(animal.paraString());
-				System.out.println("Funcionário\tDescrição");
+				System.out.println("Funcionário\tDescrição\tData(dd/mm/aaaa)\tHora(hh:mm)");
 				servicos[contServicos] = new Servico(animal, read.next(), read.next());
 				return true;
 			} else {

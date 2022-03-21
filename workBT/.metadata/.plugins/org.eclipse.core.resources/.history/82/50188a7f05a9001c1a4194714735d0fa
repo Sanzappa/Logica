@@ -41,41 +41,12 @@ public class Menu {
 					System.out.println("Erro ao cadastrar animal.");
 				break;
 			case 2:
-				int op = 0;
-				
-				while(op != 1 && op != 2) {
-					
-					System.out.println("Selecione uma opção de cadastro: ");
-					System.out.println("1 - Retroativo\t2 - Agora");
-					op = read.nextInt(); 
-							
-					switch (op) {
-					case 1:
-						
-						sucesso = cadastrarServico();
-						if (sucesso) {
-							System.out.println("Serviço registrado com sucesso.");
-							contServicos++;
-						} else
-							System.out.println("Erro ao registrar serviço.");
-						
-						break;
-						
-					case 2:
-						
-						sucesso = cadastrarServicoAgora();
-						if (sucesso) {
-							System.out.println("Serviço registrado com sucesso.");
-							contServicos++;
-						} else
-							System.out.println("Erro ao registrar serviço.");
-						
-						break;
-						
-					default:
-						break;
-					}
-				}
+				sucesso = cadastrarServico();
+				if (sucesso) {
+					System.out.println("Serviço registrado com sucesso.");
+					contServicos++;
+				} else
+					System.out.println("Erro ao registrar serviço.");
 				break;
 			case 3:
 				listarPets();
@@ -126,22 +97,6 @@ public class Menu {
 			return false;
 		}
 	}
-	
-	// Médodo que cadastra um serviço/objeto no vetor (Agora)
-		private static boolean cadastrarServicoAgora() throws ParseException {
-			System.out.println("Para registrar um serviço, primeiro o pet deve estar cadastrado");
-			System.out.println("Digite qual o id do pet/animal?");
-			Pet animal = buscarAnimal(read.nextInt());
-			if (animal != null) {
-				System.out.println(animal.paraString());
-				System.out.println("Funcionário\tDescrição");
-				servicos[contServicos] = new Servico(animal, read.next(), read.next());
-				return true;
-			} else {
-				System.out.println("Pet não encontrado.");
-				return false;
-			}
-		}
 
 	// Método que busca o animal pelo Id
 	private static Pet buscarAnimal(int idAnimal) {

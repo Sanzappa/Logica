@@ -14,7 +14,7 @@ public class Servico {
 	public Date hora;
 	// Atributos para formatar a data
 	private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-	private SimpleDateFormat hf = new SimpleDateFormat("HH:mm");
+	private SimpleDateFormat hf = new SimpleDateFormat("hh:mm");
 
 	// Métodos
 	// Construtor vazio
