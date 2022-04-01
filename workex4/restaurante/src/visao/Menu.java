@@ -36,7 +36,7 @@ public class Menu {
 				 if (prato[i] == null) {
 					
 				System.out.println("Digite o codigo do prato");
-				int prato = scan.nextInt();
+				int comandoPrato = scan.nextInt();
 				
 				System.out.println("Digite o tipo do prato");
 				String tipo = scan.next();
@@ -50,7 +50,7 @@ public class Menu {
 				System.out.println("Digite o preço");
 				float preço = scan.nextFloat();
 				
-				prato[i] = new Prato(prato, tipo, nome, descricao, preço );
+				prato[i] = new Prato(comandoPrato, tipo, nome, descricao, preço);
 				
 				break;
 				}
@@ -62,7 +62,7 @@ public class Menu {
 		
 	}
 	private static void listarPrato() {
-		System.out.println("placa\tmarca\tmodelo\tano do modelo\tano de fabricação");
+		System.out.println("codigo do prato\ttipo\tnome\tdescrição do prato\tPreço");
 		for (int i = 0; i < prato.length; i++) {
 			if (prato[i] != null) {
 				System.out.println(prato[i].paraString());
