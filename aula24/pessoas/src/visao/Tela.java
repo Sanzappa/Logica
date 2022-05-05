@@ -25,20 +25,21 @@ public class Tela extends JFrame{
 		setLayout(null);
 		
 		//Conteúdos da tela
-		rotulo1 = new JLabel("Nome");
-		rotulo1.setBounds(20,50,150,20);
+		rotulo1 = new JLabel("Nome:");
+		rotulo1.setBounds(20,30,150,20);
 		nome = new JTextField();
-		nome.setBounds(180,20,200,100);
-		rotulo2 = new JLabel("Ano de Nascimento");
-		rotulo2.setBounds(20,50,150,20);
+		nome.setBounds(180,20,200,40);
+		rotulo2 = new JLabel("Ano de Nascimento:");
+		rotulo2.setBounds(20,100,150,20);
 		ano = new JTextField();
-		ano.setBounds(180,20,200,100);
+		ano.setBounds(180,90,200,40);
 		
 		cadastrar = new JButton("Cadastrar");
 		cadastrar.setBounds(120,200,200,30);
 		
 		painel.add(rotulo1);
 		painel.add(nome);
+		painel.add(rotulo2);
 		painel.add(ano);
 		painel.add(cadastrar);
 	}
