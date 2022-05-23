@@ -8,14 +8,14 @@ import models.ManutencaoDAO;
 public class ProcessaManutencoes {
 
 	public static ArrayList<Manutencao> manutencoes = new ArrayList<>();
-	private ManutencaoDAO dao = new ManutencaoDAO();
-	
-	public static void salvar() {
-		
-	}
+	private static ManutencaoDAO dao = new ManutencaoDAO();
 	
 	public static void abrir() {
-		
+		manutencoes = dao.ler();
+	}
+	
+	public static void salvar() {
+		dao.escrever(manutencoes);
 	}
 	
 }

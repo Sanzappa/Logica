@@ -10,11 +10,11 @@ public class Manutencao {
 	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
 	private int id;
-	private Date data;
+	private String data;
 	private String equipamento;
 	private double custoHora;
 	private double tempoGasto;
-	public Manutencao(int id, Date data, String equipamento, double custoHora, double tempoGasto) {
+	public Manutencao(int id, String data, String equipamento, double custoHora, double tempoGasto) {
 		this.id = id;
 		this.data = data;
 		this.equipamento = equipamento;
@@ -24,13 +24,16 @@ public class Manutencao {
 	public int getId() {
 		return id;
 	}
+	public String getId(String S) {
+		return String.format("%d", id);
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public String getEquipamento() {
@@ -42,11 +45,17 @@ public class Manutencao {
 	public double getCustoHora() {
 		return custoHora;
 	}
+	public String getCustoHora(String S) {
+		return String.format("%.0f", custoHora);
+	}
 	public void setCustoHora(double custoHora) {
 		this.custoHora = custoHora;
 	}
 	public double getTempoGasto() {
 		return tempoGasto;
+	}
+	public String getTempoGasto(String S) {
+		return String.format("%d", tempoGasto);
 	}
 	public void setTempoGasto(double tempoGasto) {
 		this.tempoGasto = tempoGasto;
@@ -85,15 +94,10 @@ public class Manutencao {
 	}
 	public Manutencao(String linha) {
 		String[] temp = linha.split(";");
-		
-		setId(Integer.parseInt(temp[0]));
-		try {
-			setData(sdf.parse(temp[1]));
-		}catch(ParseException e) {
-			System.out.println(e.toString());
-		}
-		setEquipamento(temp[2]);
-		setCustoHora(Double.parseDouble(temp[3].replace(",", ".")));
-		setTempoGasto(Double.parseDouble(temp[4]));
+		this.id = Integer.parseInt(linha.split(";")[0]);
+		this.data = linha.split(";")[1];
+		this.equipamento = linha.split(";")[2];
+		this.custoHora = Double.parseDouble(linha.split(";")[3]);
+		this.tempoGasto = Double.parseDouble(linha.split(";")[4]);
 	}
 }
