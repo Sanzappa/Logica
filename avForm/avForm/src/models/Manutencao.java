@@ -55,7 +55,7 @@ public class Manutencao {
 		return tempoGasto;
 	}
 	public String getTempoGasto(String S) {
-		return String.format("%d", tempoGasto);
+		return String.format("%.2f", tempoGasto);
 	}
 	public void setTempoGasto(double tempoGasto) {
 		this.tempoGasto = tempoGasto;
@@ -80,12 +80,11 @@ public class Manutencao {
 	
 	public double getTotal() {
 		return getCustoHora() * getTempoGasto();
-		
 	}
 	@Override
 	public String toString() {
 		return id + "\t" + data + "\t" + equipamento + "\t"
-				+ custoHora + "\t" + tempoGasto + "\t";
+				+ custoHora + "\t" + tempoGasto + "\t" + String.format("%.2f", getTotal());
 	}
 	
 	public String toCSV() {

@@ -20,6 +20,8 @@ import java.awt.event.ActionEvent;
 
 import controllers.ProcessaManutencoes;
 import models.Manutencao;
+import models.ManutencaoDAO;
+
 
 public class FormManutencoes extends JFrame implements ActionListener{
 	
@@ -31,7 +33,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 	private JComboBox<String> equipamento;
 	private JTextArea verResultado;
 	private JButton cadastrar, buscar, alterar, excluir;
-	private int autoId = ProcessaManutencoes.manutencoes.size() + 1;
+	private int autoId = ProcessaManutencoes.manutencoes.get(ProcessaManutencoes.manutencoes.size() - 1).getId() + 1;
 	private String texto = "";
 	
 	FormManutencoes(){
@@ -48,6 +50,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 		tfId = new JTextField();
 		tfId.setBounds(140, 55, 255, 30);
 		tfId.setEditable(false);
+		tfId.setText("" + autoId );
 		//
 		data = new JLabel("Data");
 		data.setBounds(20, 95, 120, 30);
@@ -90,6 +93,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 		verResultado.setEnabled(true);
 		verResultado.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 		preencherAreaDeTexto();
+		verResultado.setEnabled(false);
 		
 		painel.add(Id);
 		painel.add(tfId);
@@ -208,7 +212,7 @@ public class FormManutencoes extends JFrame implements ActionListener{
 		if (tfCusto.getText().length() !=0 && tfTempo.getText().length() !=0) {
 
 			ProcessaManutencoes.manutencoes.set(indice, new Manutencao(id, data, equipamento.getSelectedItem().toString(),
-					Double.parseDouble(tfCusto.getText().toString()),Double.parseDouble(tfTempo.getText())));
+					Double.parseDouble(tfCusto.getText().replace(",", ".")),Double.parseDouble(tfTempo.getText().replace(",", "."))));
 			preencherAreaDeTexto();
 			limparCampos();
 			
@@ -269,13 +273,9 @@ public class FormManutencoes extends JFrame implements ActionListener{
 		}
 	}
 	
-	public static void abrir() {
-		
-	}
-	
 	public static void main(String[] agrs) throws ParseException {
 
-		FormManutencoes.abrir();
+		ProcessaManutencoes.abrir();
 		new FormManutencoes().setVisible(true);
 
 	}
